@@ -1,4 +1,4 @@
-# Start SPA React Webpack
+# Start SPA React
 
 ### Usage
 1. Edit server/config.js
