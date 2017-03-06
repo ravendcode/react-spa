@@ -6,4 +6,6 @@
 3. `openssl req -new -key server/ssl/private.key -out server/ssl/cert.csr`
 4. `openssl x509 -req -in server/ssl/cert.csr -signkey server/ssl/private.key -out server/ssl/certificate.pem`
 2. `npm i`
-3. `npm run dev`
+3. `npm run dev` - https://localhost:3000
+4. `npm run prod` - minify files
+4. `npm start` - https://localhost
