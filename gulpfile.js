@@ -1,7 +1,7 @@
 const gulp = require('gulp')
 const minifyCSS = require('gulp-csso')
 const rename = require('gulp-rename')
-const uglify = require('gulp-uglify')
+// const uglify = require('gulp-uglify')
 const through2 = require('through2').obj
 
 const distDir = 'public'
@@ -17,7 +17,7 @@ gulp.task('css-min', () => {
 
 gulp.task('js-min', () => {
   return gulp.src(distDir + '/scripts.js')
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(rename({
       suffix: '.min'
     }))

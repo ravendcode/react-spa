@@ -33,7 +33,7 @@ i18n.configure({
   register: global
 })
 
-app.use(favicon(config.publicDir + '/assets/favicon.ico'))
+app.use(favicon(config.publicDir + '/assets/icons/favicon.ico'))
 app.use(i18n.init)
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
