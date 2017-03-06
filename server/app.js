@@ -33,7 +33,7 @@ i18n.configure({
   register: global
 })
 
-app.use(favicon(config.publicDir + '/favicon.ico'))
+app.use(favicon(config.publicDir + '/assets/favicon.ico'))
 app.use(i18n.init)
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
@@ -72,6 +72,8 @@ app.use(function (req, res, next) {
   var err = new Error(req.__('error.not found'))
   err.status = 404
   next(err)
+
+  // res.sendFile(config.publicDir + '/index.html')
 })
 
 // Error handler

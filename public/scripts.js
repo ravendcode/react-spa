@@ -12360,23 +12360,15 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactDom = __webpack_require__(386);
 
-var _reactDom2 = _interopRequireDefault(_reactDom);
+__webpack_require__(373);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-__webpack_require__(373);
-// import User from './User'
-
-// console.log(new User().getName())
-
-
-_reactDom2.default.render(_react2.default.createElement(
+(0, _reactDom.render)(_react2.default.createElement(
   'h1',
   null,
-  'Hello, world!'
-), document.getElementById('content'));
-console.log(_react2.default);
-console.log("production");
+  'React'
+), document.getElementById('app'));
 
 /***/ }),
 /* 191 */

@@ -15,6 +15,7 @@ module.exports = {
     'browser': true,
     'jquery': true,
   },
+  'extends': ['standard', 'standard-react'],
   'parserOptions': {
     'ecmaVersion': 7,
     'sourceType': 'module',
@@ -29,6 +30,8 @@ module.exports = {
     'quotes': 2,
     'comma-dangle': 0,
     'space-before-function-paren': 0,
+    'spaced-comment': 0,
+    'jsx-quotes': 0,
     'standard/object-curly-even-spacing': [2, 'either'],
     'standard/array-bracket-even-spacing': [2, 'either'],
     'standard/computed-property-even-spacing': [2, 'even']

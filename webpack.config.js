@@ -36,7 +36,7 @@ const extractSass = new ExtractTextPlugin({
 })
 
 const config = {
-  entry: ['babel-polyfill', srcDir + '/index.js'],
+  entry: ['babel-polyfill', srcDir + '/index.jsx'],
   output: {
     path: path.resolve(__dirname, distDir),
     filename: 'scripts.js'
