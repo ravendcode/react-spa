@@ -1,4 +1,4 @@
-# Start SPA React
+# React SPA
 
 ### Usage
 1. Edit server/config.js
