@@ -54,10 +54,10 @@
   "scripts": {
     "start": "node ./server/bin/www",
     "dev": "concurrently \"npm run client-dev\" \"npm run server-dev\"",
+    "prod": "export NODE_ENV=production || set NODE_ENV=production&& npm run clean && webpack && gulp",
     "server-dev": "export DEBUG=app:* || set DEBUG=app:* && nodemon ./server/bin/www -e js,hbs --ignore client/",
     "client-dev": "export DEBUG=app:* || set DEBUG=app:* && webpack-dev-server -d",
     "client-dev2": "webpack -d --watch",
-    "prod": "export NODE_ENV=production || set NODE_ENV=production&& npm run clean && webpack && gulp",
     "clean": "rimraf ./public/*.js ./public/*.css",
     "test": "export NODE_ENV=test || set NODE_ENV=test&& nodemon --exec mocha tests/**/**/*.test.js"
   },
