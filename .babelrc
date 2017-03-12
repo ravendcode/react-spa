@@ -4,6 +4,12 @@
       "targets": {
         "node": "current"
       }
-    }], "react"
-  ]
+    }],
+    "react"
+  ],
+  "env": {
+    "production": {
+      "presets": ["babili"]
+    }
+  }
 }

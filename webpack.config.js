@@ -6,8 +6,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const debug = require('debug')('app:client')
 
 const env = process.env.NODE_ENV || 'development'
-const srcDir = './client'
-const distDir = './public'
+const srcDir = './src/client'
+const distDir = './dist/client'
 
 const define = new webpack.DefinePlugin({
   'process.env': {
@@ -16,7 +16,7 @@ const define = new webpack.DefinePlugin({
 })
 
 const html = new HtmlWebpackPlugin({
-  title: 'Start SPA React',
+  title: 'React Webpack',
   template: srcDir + '/index.html',
   minify: {
     collapseWhitespace: env === 'production'
@@ -24,52 +24,76 @@ const html = new HtmlWebpackPlugin({
 })
 
 const extractCss = new ExtractTextPlugin({
-  filename: 'styles.css',
+  filename: 'bundle.css',
   disable: env === 'development',
   allChunks: true
 })
 
 const extractSass = new ExtractTextPlugin({
-  filename: 'styles.css',
+  filename: 'bundle.css',
   disable: env === 'development',
   allChunks: true
 })
 
 const config = {
-  entry: ['babel-polyfill', srcDir + '/index.jsx'],
+  entry: ['babel-polyfill', srcDir + '/app/index.js'],
   output: {
     path: path.resolve(__dirname, distDir),
-    filename: 'scripts.js'
+    filename: 'bundle.js'
   },
   module: {
-    rules: [{
-      exclude: /node_modules/,
-      test: /\.(js|jsx)$/,
-      use: ['babel-loader']
-    }, {
-      test: /\.css$/,
-      use: extractSass.extract({
-        fallback: 'style-loader',
-        use: ['css-loader']
-      })
-    }, {
-      test: /\.scss$/,
-      use: extractSass.extract({
-        fallback: 'style-loader',
-        use: ['css-loader', 'sass-loader']
-      })
-    }]
+    rules: [
+      {
+        exclude: /node_modules/,
+        test: /\.(js|jsx)$/,
+        use: ['babel-loader']
+      },
+      {
+        test: /\.json$/,
+        use: 'json-loader'
+      },
+      {
+        test: /\.css$/,
+        use: extractSass.extract({
+          fallback: 'style-loader',
+          use: ['css-loader']
+        })
+      },
+      {
+        test: /\.scss$/,
+        use: extractSass.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'sass-loader']
+        })
+      },
+      {
+        test: /\.(gif|png|jpg|ttf|otf|eot|svg|woff|woff2?)(\?.+)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000000000000,
+          name: 'assets/images/[name].[ext]'
+        }
+      },
+      {
+        test: /\.(ico?)(\?.+)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 1,
+          name: 'assets/icons/[name].[ext]'
+        }
+      }
+    ]
   },
   devServer: {
-    contentBase: path.join(__dirname, distDir),
+    contentBase: srcDir,
     compress: true,
     port: 3000,
-    https: true,
-    proxy: [{
-      path: '**',
-      target: 'https://localhost',
-      secure: false
-    }]
+    // https: true,
+    // proxy: [{
+    //   path: '**',
+    //   target: 'http://localhost',
+    //   secure: false
+    // }]
   },
   plugins: [
     define,
