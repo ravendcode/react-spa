@@ -44,9 +44,9 @@ const config = {
   module: {
     rules: [
       {
-        exclude: /node_modules/,
         test: /\.(js|jsx)$/,
-        use: ['babel-loader']
+        use: ['babel-loader'],
+        exclude: /node_modules/
       },
       {
         test: /\.json$/,
@@ -81,6 +81,11 @@ const config = {
           limit: 1,
           name: 'assets/icons/[name].[ext]'
         }
+      },
+      {
+        test: /\.html$/,
+        loader: 'raw-loader',
+        exclude: /node_modules/
       }
     ]
   },

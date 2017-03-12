@@ -7,9 +7,10 @@ const debug = require('debug')('app:server')
 const app = require('./app').default
 const config = require('./config')
 
-if (config.env === 'production') {
-  require('./react')(app)
-}
+// console.log(config.env)
+// if (config.env === 'production') {
+//   require('./react')(app)
+// }
 
 let port = config.httpPort
 let server = http.createServer(app)

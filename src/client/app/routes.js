@@ -9,6 +9,8 @@ module.exports = (
   <Route path="/" component={App}>
     <IndexRoute component={Home} />
     <Route path="/todo" component={Todo} />
+    <Route path="/todo/active" component={Todo} />
+    <Route path="/todo/complete" component={Todo} />
     <Route path="*" component={NotFound} />
   </Route>
 )

@@ -16,7 +16,7 @@
 4. `npm i gulp-cli -g`
 5. `npm run client-dev` http://localhost:3000 development only frontend
 6. `npm run dev` - http://localhost:3000 frontend and http://localhost backend
-7. `npm run prod` - minify and add frontend files in public
+7. `npm run prod` - minify
 8. `npm start` - http://localhost start in production for heroku
 9. `karma start` testing the client
 9. `npm test` testing the server

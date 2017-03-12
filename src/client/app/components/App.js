@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 import Nav from './Nav'
 import Home from './Home'
 import gulpLogo from '../assets/images/gulp.svg'
@@ -28,7 +28,7 @@ export default class App extends React.Component {
 }
 
 App.propTypes = {
-  children: PropTypes.node
+  children: React.PropTypes.node
 }
 
 App.defaultProps = {

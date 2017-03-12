@@ -68,11 +68,15 @@ app.use((req, res, next) => {
 // Routes
 routes(app)
 
-if (config.env === 'development') {
-  app.get('*', (req, res, next) => {
-    res.sendFile(config.distClientDir + '/index.html')
-  })
-}
+// if (config.env === 'development') {
+//   app.get('*', (req, res, next) => {
+//     res.sendFile(config.distClientDir + '/index.html')
+//   })
+// }
+
+app.get('*', (req, res, next) => {
+  res.sendFile(config.distClientDir + '/index.html')
+})
 
 // Catch 404 and forward to error handler
 // app.use((req, res, next) => {

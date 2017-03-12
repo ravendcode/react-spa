@@ -38,22 +38,22 @@ const config = {
         test: /\.(js|jsx)$/,
         use: ['babel-loader']
       },
-      {
-        test: /\.(gif|png|jpg|ttf|otf|eot|svg|woff|woff2?)(\?.+)?$/,
-        loader: 'url-loader',
-        options: {
-          limit: 10000000000000,
-          name: 'assets/images/[name].[ext]'
-        }
-      },
-      {
-        test: /\.(ico?)(\?.+)?$/,
-        loader: 'url-loader',
-        options: {
-          limit: 10000000000000,
-          name: 'assets/icons/[name].[ext]'
-        }
-      }
+      // {
+      //   test: /\.(gif|png|jpg|ttf|otf|eot|svg|woff|woff2?)(\?.+)?$/,
+      //   loader: 'url-loader',
+      //   options: {
+      //     limit: 10000000000000,
+      //     name: 'assets/images/[name].[ext]'
+      //   }
+      // },
+      // {
+      //   test: /\.(ico?)(\?.+)?$/,
+      //   loader: 'url-loader',
+      //   options: {
+      //     limit: 10000000000000,
+      //     name: 'assets/icons/[name].[ext]'
+      //   }
+      // }
     ]
   },
   plugins: [

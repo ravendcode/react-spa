@@ -3,20 +3,17 @@ import React from 'react'
 import { renderToString } from 'react-dom/server'
 import { match, RouterContext } from 'react-router'
 import reactRoutes from '../client/app/routes'
-import config from './config'
+import * as config from './config'
 
 module.exports = (app) => {
   app.get('*', (req, res, next) => {
-    console.log(1)
     match({ routes: reactRoutes, location: req.url }, (err, redirect, props) => {
-      console.log(2)
       if (err) {
         return next(err)
       } else if (redirect) {
         res.redirect(redirect.pathname + redirect.search)
       } else if (props) {
         const appHtml = renderToString(<RouterContext {...props} />)
-
         renderPage(appHtml).then((data) => {
           res.send(data)
         }).catch((e) => next(e))
